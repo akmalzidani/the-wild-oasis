@@ -26,10 +26,13 @@ function Cabins() {
         <p>No cabins found</p>
       ) : (
         cabins.map((cabin) => (
-          <p key={cabin.id}>
-            {cabin.name}|{cabin.regularPrice}|(Discount: {cabin.discount}) (Max
-            capacity: {cabin.maxCapacity})
-          </p>
+          <div key={cabin.id}>
+            <img src={cabin.image} alt={cabin.name} />
+            <p>
+              {cabin.name}|{cabin.regularPrice}|(Discount: {cabin.discount})
+              (Max capacity: {cabin.maxCapacity})
+            </p>
+          </div>
         ))
       )}
       <p>{cabins.length} cabins found</p>
