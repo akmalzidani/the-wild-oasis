@@ -1,42 +1,19 @@
-import { useEffect, useState } from "react";
+import CabinTable from "../features/cabins/CabinTable";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
-import { getCabins } from "../services/apiCabins";
 
 function Cabins() {
-  const [cabins, setCabins] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const cabins = await getCabins();
-        setCabins(cabins);
-      } catch (error) {
-        console.error("Error fetching cabins:", error);
-      }
-    }
-
-    fetchData();
-  }, []);
-
   return (
-    <Row type="horizontal">
-      <Heading as="h1">All cabins</Heading>
-      {!cabins.length ? (
-        <p>No cabins found</p>
-      ) : (
-        cabins.map((cabin) => (
-          <div key={cabin.id}>
-            <img src={cabin.image} alt={cabin.name} />
-            <p>
-              {cabin.name}|{cabin.regularPrice}|(Discount: {cabin.discount})
-              (Max capacity: {cabin.maxCapacity})
-            </p>
-          </div>
-        ))
-      )}
-      <p>{cabins.length} cabins found</p>
-    </Row>
+    <>
+      <Row type="horizontal">
+        <Heading as="h1">All cabins</Heading>
+        <p>Filter Sort:</p>
+      </Row>
+
+      <Row>
+        <CabinTable />
+      </Row>
+    </>
   );
 }
 

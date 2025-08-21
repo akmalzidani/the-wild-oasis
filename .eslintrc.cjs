@@ -24,5 +24,6 @@ module.exports = {
         ignoreRestSiblings: true, // abaikan rest destructuring
       },
     ],
+    "react/prop-types": "off",
   },
 };
