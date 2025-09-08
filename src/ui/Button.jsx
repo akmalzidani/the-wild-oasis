@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const sizes = {
+const size = {
   small: css`
     font-size: 1.2rem;
     padding: 0.4rem 0.8rem;
@@ -53,12 +53,12 @@ const Button = styled.button`
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
 
-  ${(props) => sizes[props.sizes]}
+  ${(props) => size[props.size]}
   ${(props) => variations[props.$variation]}
 `;
 
 Button.defaultProps = {
-  sizes: "medium",
+  size: "medium",
   $variation: "primary",
 };
 
