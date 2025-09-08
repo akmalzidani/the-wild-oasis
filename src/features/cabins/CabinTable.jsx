@@ -37,8 +37,6 @@ function CabinTable() {
     }
     return (valA - valB) * modifier;
   });
-  console.log(field, direction);
-  console.log(sortedCabins);
 
   return (
     <Menus>
